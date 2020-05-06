@@ -321,6 +321,7 @@ rzsz(char *mode, char *file) {
 	if(pid == 0) {
 		dup2(fd, 0);
 		dup2(fd, 1);
+		tcflush(0, TCIFLUSH);
 		if(*file) execl(path, cmd, file, NULL);
 		else	  execl(path, cmd, NULL);
 		_exit(127);
