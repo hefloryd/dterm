@@ -287,6 +287,12 @@ rzsz(char *mode, char *file) {
 		return -1;
 	}
 
+	/* Trim trailing whitespace from filename */
+	unsigned char * p = (unsigned char *)file;
+	while(*p != '\0' && !isspace(*p))
+		p++;
+	*p = '\0';
+
 	/*
 	 Find the appropriate command
 	 */
