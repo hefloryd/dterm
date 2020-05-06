@@ -64,6 +64,8 @@ printable ASCII, CR and LF.
 - @!<command>: Execute shell command and process its output
 - sx <filename>: Send a file using XMODEM.
 - rx <filename>: Receive a file using XMODEM.
+- sb <filename>: Send a file using YMODEM.
+- rb: Receive file(s) using YMODEM.
 - sz <filename>: Send a file using ZMODEM.
 - rz: Receive file(s) using ZMODEM.
 - noshell: disable any further use from '!' (can not be re-enabled)
@@ -97,14 +99,16 @@ Comments may be marked with a '#'.
 
 File Transfer
 
-If the rzsz package (or lrzsz) package is installed, the sx, sz, rx & rz
-commands can be used to initiate file transfers using the reliable
-XMODEM and ZMODEM file transfer protocols.  Note that the program files
-for rzsz must be in /usr/bin or /usr/local/bin for dterm to find them.
+If the rzsz package (or lrzsz) package is installed, the sx, sb, sz,
+rx, rb & rz commands can be used to initiate file transfers using the
+reliable XMODEM and ZMODEM file transfer protocols.  Note that the
+program files for rzsz must be in /usr/bin or /usr/local/bin for dterm
+to find them.
 
-Note that rx, sx and rz require that the transfer be initiated at the
-remote end before escaping back to the dterm command prompt.  sz will send 
-an "rz" command down the serial link in start-up to initiate the transfer.
+Note that rx, sx, rb, sb and rz require that the transfer be initiated
+at the remote end before escaping back to the dterm command prompt.
+sz will send an "rz" command down the serial link in start-up to
+initiate the transfer.
 
 
 Examples

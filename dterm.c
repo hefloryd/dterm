@@ -138,6 +138,7 @@ help() {
 "dtr, nodtr	Raise / lower DTR	b		Send a 500ms break\n"
 "rts, norts	Raise / lower RTS	d, r		Toggle DTR, RTS\n"
 "rx <filename>	Receive file (XMODEM)	sx <filename>	Send file (XMODEM)\n"
+"rb <filename>	Receive file (YMODEM)	sb <filename>	Send file (YMODEM)\n"
 "rz		Receive file (ZMODEM)	sz <filename>	Send file (ZMODEM)\n"
 "modem		Hang up modem on exit, exit if modem hangs up\n"
 "nomodem 	Do not do modem control\n"
@@ -416,12 +417,12 @@ setup(char *s, char *cffile, int cfline) {
 		}
 
 		/*
-		 File transfer (sx, sz, rx, rz)
+		 File transfer (sx, sb, sz, rx, rb, rz)
 		 Run rzsz to perform the actual file transfer
 		 Allow "sxfilename", "sx filename" or just "rz"
 		 */
 		if((s[0] == 's' || s[0] == 'r') && 
-		   (s[1] == 'x' || s[1] == 'z')) {
+		   (s[1] == 'x' || s[1] == 'b' || s[1] == 'z')) {
 			if((t = strchr(s, '\n')))
 				*t = 0;
 			for(t = s + 2; isspace(*t); ) t++;
