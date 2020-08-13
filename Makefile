@@ -1,6 +1,6 @@
 COPT		= -O3 -Wall -Werror
 BIN		= /usr/local/bin
-VERSION		= 0.5
+VERSION		= $(shell git describe --tags --long --dirty)
 SOURCEFILES	= dterm.c speeds.sh Makefile LICENCE.txt README.txt
 READLINE	= -DREADLINE -lreadline
 
